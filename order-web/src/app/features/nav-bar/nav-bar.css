@@ -1,0 +1,12 @@
+.spacer {
+  flex: 1;
+}
+
+mat-drawer-container {
+  height: calc(100vh - 64px);
+}
+
+mat-drawer {
+  height: 100%;
+  border-radius: 0;
+}

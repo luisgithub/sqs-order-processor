@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: local-sqs
+  cloud:
+    aws:
+      sqs:
+        endpoint: http://localhost:9324
+        queue-srv:
+          # Tells spring to attempt creation if it doesn't exist locally
+          queue-not-found-strategy: CREATE
+      region:
+        static: us-east-1
+      # Note: For production, rely on AWS IAM Roles instead of hardcoding keys here.
+      credentials:
+        access-key: noop
+        secret-key: noop
+
+# Custom property to cleanly reference your queue name in code
+app:
+  queues:
+    order-processing-queue: "my-order-queue"

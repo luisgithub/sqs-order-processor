@@ -1,0 +1,30 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span class="spacer" style="flex: auto"></span>
+  <span>My Cool App</span>
+  <button mat-button>About</button>
+  <button mat-button>Contact</button>
+  <button mat-raised-button>Salir</button>
+</mat-toolbar>
+<mat-drawer-container>
+  <mat-drawer #drawer opened="true" position="start" mode="push">
+    <mat-list>
+      <mat-list-item
+        ><button mat-button routerLink="/home">
+          <mat-icon>home</mat-icon> Home
+        </button></mat-list-item
+      >
+      <mat-list-item
+        ><button mat-button routerLink="/orders">
+          <mat-icon>description</mat-icon> Orders
+        </button></mat-list-item
+      >
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+    <!-- Main content goes here -->
+  </mat-drawer-content>
+</mat-drawer-container>

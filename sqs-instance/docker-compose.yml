@@ -1,0 +1,18 @@
+services:
+  sqs:
+    image: softwaremill/elasticmq-native
+    container_name: Local-SQS-Core
+    ports:
+      - "9324:9324" # Point your Spring Boot / Java apps here
+    volumes:
+      - ./elasticmq.conf:/opt/elasticmq.conf # <-- Mount the config file here
+
+  sqs-ui:
+    image: softwaremill/elasticmq-ui
+    container_name: Local-SQS-UI
+    ports:
+      - "3000:3000" # Open http://localhost:3000 in your browser
+    environment:
+      - SQS_ENDPOINT=http://sqs:9324
+    depends_on:
+      - sqs
