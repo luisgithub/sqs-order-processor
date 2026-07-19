@@ -9,3 +9,16 @@ body {
   height: 100%;
   padding: 20;
 }
+
+.toast-success {
+  --mat-snack-bar-container-color: white;
+  --mat-snack-bar-button-color: white;
+  --mat-snack-bar-supporting-text-color: black;
+  border: 2px solid #4caf50;
+}
+
+.toast-error {
+  --mat-snack-bar-container-color: #f44336;
+  --mat-snack-bar-button-color: white;
+  --mat-snack-bar-supporting-text-color: white;
+}

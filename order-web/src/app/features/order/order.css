@@ -1,0 +1,32 @@
+.order-container {
+  padding: 24px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+mat-card {
+  margin-bottom: 24px;
+}
+
+mat-card-header {
+  margin-bottom: 16px;
+}
+
+mat-card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.success-card {
+  border: 1px solid #4caf50;
+}
+
+.success-card mat-list-item {
+  color: black;
+}

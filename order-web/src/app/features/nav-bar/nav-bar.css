@@ -6,7 +6,18 @@ mat-drawer-container {
   height: calc(100vh - 64px);
 }
 
+mat-drawer mat-icon {
+  color: black !important;
+}
+
 mat-drawer {
-  height: 100%;
-  border-radius: 0;
+  color: black !important;
+}
+
+mat-drawer button {
+  color: black !important;
+}
+
+.burger-icon {
+  cursor: pointer;
 }
