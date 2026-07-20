@@ -1,0 +1,39 @@
+<div class="order-list-container">
+  <h2>Orders</h2>
+
+  @if (loading()) {
+    <p>Loading orders...</p>
+  }
+
+  @if (error(); as msg) {
+    <p style="color: red">{{ msg }}</p>
+    <button (click)="loadOrders()">Retry</button>
+  }
+
+  @if (!loading() && !error()) {
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Status</th>
+          <th>Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if (orders().length === 0) {
+          <tr>
+            <td colspan="3">no orders found..</td>
+          </tr>
+        } @else {
+          @for (order of orders(); track order.id) {
+            <tr>
+              <td>{{ order.id }}</td>
+              <td>{{ order.status }}</td>
+              <td>{{ order.amount | currency }}</td>
+            </tr>
+          }
+        }
+      </tbody>
+    </table>
+  }
+</div>

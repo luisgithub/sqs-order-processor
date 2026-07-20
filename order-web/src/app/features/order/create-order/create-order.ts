@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { OrderService } from './data/order.service';
-import { OrderDto } from './models/order.model';
+import { OrderService } from '../data/order.service';
+import { OrderDto } from '../models/order.model';
 
 @Component({
   selector: 'app-order-form',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './order.html',
-  styleUrl: './order.css',
+  templateUrl: './create-order.html',
+  styleUrl: './create-order.css',
 })
 export class Order {
   private fb = inject(FormBuilder);
