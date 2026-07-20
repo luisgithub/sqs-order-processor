@@ -1,1 +1,81 @@
+# =========================================================================
+# Angular Dependency & Cache Folders (Never commit these!)
+# =========================================================================
 node_modules/
+/.angular/
+
+# =========================================================================
+# Build Outputs
+# =========================================================================
+/dist/
+/bazel-out/
+
+# =========================================================================
+# Local System and Environment Configurations
+# =========================================================================
+# Local environment file overrides containing API keys/secrets
+.env
+.env.local
+src/environments/environment.development.ts
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# =========================================================================
+# Testing & Code Coverage Outputs
+# =========================================================================
+/coverage/
+/cypress/screenshots/
+/cypress/videos/
+/.nyc_output/
+
+# =========================================================================
+# Editor & IDE Configs (Specific to your local setup)
+# =========================================================================
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/settings.json
+!.vscode/tasks.json
+
+# IntelliJ / WebStorm / JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Eclipse
+.metadata/
+.classpath
+.project
+.settings/
+
+# =========================================================================
+# Operating System Files
+# =========================================================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+Desktop.ini
