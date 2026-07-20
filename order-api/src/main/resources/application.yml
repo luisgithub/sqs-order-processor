@@ -1,2 +1,5 @@
 spring:
   application.name=: order-api
+app:
+  sqs-order-queue:
+    url: localhost:8088

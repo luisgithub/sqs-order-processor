@@ -1,19 +1,38 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OrderService } from './data/order.service';
 import { OrderDto } from './models/order.model';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
+import { ToasterService } from '../toaster/toaster.service';
 
 @Component({
   selector: 'app-order-form',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatButtonModule,
+    MatCardModule,
+    MatIconModule,
+    MatListModule,
+  ],
   templateUrl: './order.html',
   styleUrl: './order.css',
 })
 export class Order {
   private fb = inject(FormBuilder);
   private orderService = inject(OrderService);
+  private toaster = inject(ToasterService);
 
   savedOrder = signal<OrderDto | null>(null);
 
@@ -32,9 +51,14 @@ export class Order {
     this.orderService.createOrder(formPayload).subscribe({
       next: (responseRecord: OrderDto) => {
         this.savedOrder.set(responseRecord);
-        this.orderForm.reset();
+        this.orderForm.reset({ status: 'PENDING', amount: 0 });
+        (document.activeElement as HTMLElement)?.blur();
+        this.toaster.success('Order created successfully!');
       },
-      error: (err: unknown) => console.error('Failed to place order', err),
+      error: (err: unknown) => {
+        console.error('Failed to place order', err);
+        this.toaster.error('Failed to place order. Please try again.');
+      },
     });
   }
 }

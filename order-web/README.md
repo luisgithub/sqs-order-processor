@@ -1,67 +1,64 @@
-# BenxAngular
+# Order Web (Angular Frontend)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.1.
+Angular 21 SPA with Angular Material 21 (M3) for order management.
 
-## Development server
+## Stack
 
-To start a local development server, run:
+- Angular 21 (standalone components)
+- Angular Material 21 (Material 3 theming)
+- TypeScript 5.9
+- Vitest for unit testing
+- ESLint + Prettier for code quality
+- Husky + lint-staged for pre-commit hooks
+
+## Quick Start
 
 ```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Available at http://localhost:4200
 
-## Code scaffolding
+## Scripts
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+| Command | Description |
+|---|---|
+| `ng serve` | Start dev server |
+| `ng build` | Production build |
+| `ng test` | Run unit tests |
+| `npm run format` | Format with Prettier |
+| `npm run lint` | Lint with ESLint |
+| `npm run lint:fix` | Lint and auto-fix |
 
-```bash
-ng generate component component-name
+## Features
+
+- **Navigation bar** with persistent sidenav drawer and toolbar
+- **Order form** with Material form fields, validation, and toast notifications
+- **Material 3 theming** with custom palette overrides
+
+## Project Structure
+
+```
+src/app/
+├── features/
+│   ├── nav-bar/       # Sidenav + toolbar layout
+│   ├── home/          # Home page
+│   ├── order/         # Order creation form with validation
+│   ├── login/         # Login page
+│   └── toaster/       # MatSnackBar toast components (success/error)
+├── directives/        # Custom directives
+├── app.ts             # Root component
+├── app.routes.ts      # Route definitions
+└── app.config.ts      # Application providers
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Angular Material Theming
 
-```bash
-ng generate --help
-```
+Theme customization is in `src/material-theme.scss`:
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Formatting
-
-To format all source files with [Prettier](https://prettier.io/), run:
-
-```bash
-npm run format
-```
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- **Primary palette:** Azure
+- **Tertiary palette:** Blue
+- **Toolbar:** Purple background, white text
+- **Sidenav:** Light gray (`#e0e0e0`) background, black text/icons
+- **Toast notifications:** Green for success, red for errors
