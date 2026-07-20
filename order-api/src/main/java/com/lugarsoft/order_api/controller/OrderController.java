@@ -5,10 +5,15 @@ import com.lugarsoft.order_api.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 
 @RestController
@@ -23,4 +28,23 @@ public class OrderController {
         orderDto = orderService.processOrder(orderDto);
         return ResponseEntity.ok(orderDto);
     }
+
+    @GetMapping(value = "/{orderId}")
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable String orderId){
+        OrderDto orderDto = orderService.getById(orderId);
+        return ResponseEntity.ok(orderDto);
+    }
+
+    @GetMapping
+    public ResponseEntity<List<OrderDto>> getAllOrders(){
+        List<OrderDto> orderDtoList = orderService.getAllOrders();
+        return ResponseEntity.ok(orderDtoList);
+    }
+
+    @DeleteMapping(value = "/{orderId}")
+    public ResponseEntity<String> deleteOrderById(@PathVariable String orderId){
+        orderService.deleteOrder(orderId);
+        return ResponseEntity.ok("ok");
+    }
+
 }

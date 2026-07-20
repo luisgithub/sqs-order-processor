@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
-import { Order } from './order';
+import { Order } from './create-order';
 
 describe('Order', () => {
   let component: Order;

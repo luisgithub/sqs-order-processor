@@ -1,6 +1,7 @@
 import { CommonModule, CurrencyPipe } from '@angular/common';
 import { Component, inject, signal } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+<<<<<<< HEAD:order-web/src/app/features/order/order.ts
 import { OrderService } from './data/order.service';
 import { OrderDto } from './models/order.model';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,10 +12,15 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { ToasterService } from '../toaster/toaster.service';
+=======
+import { OrderService } from '../data/order.service';
+import { OrderDto } from '../models/order.model';
+>>>>>>> full-service-features:order-web/src/app/features/order/create-order/create-order.ts
 
 @Component({
   selector: 'app-order-form',
   standalone: true,
+<<<<<<< HEAD:order-web/src/app/features/order/order.ts
   imports: [
     CommonModule,
     ReactiveFormsModule,
@@ -28,6 +34,11 @@ import { ToasterService } from '../toaster/toaster.service';
   ],
   templateUrl: './order.html',
   styleUrl: './order.css',
+=======
+  imports: [CommonModule, ReactiveFormsModule],
+  templateUrl: './create-order.html',
+  styleUrl: './create-order.css',
+>>>>>>> full-service-features:order-web/src/app/features/order/create-order/create-order.ts
 })
 export class Order {
   private fb = inject(FormBuilder);
