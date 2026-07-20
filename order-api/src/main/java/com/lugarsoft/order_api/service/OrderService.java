@@ -24,7 +24,7 @@ public class OrderService {
         log.info("Order {} has been processed", orderDto.id());
         try {
             restClient.post()
-                    .uri("localhost:8088/api/orders")
+                    .uri("/api/orders")
                     .body(orderDto)
                     .retrieve()
                     .toBodilessEntity();

@@ -10,7 +10,6 @@ body {
   padding: 20;
 }
 
-<<<<<<< HEAD
 .toast-success {
   --mat-snack-bar-container-color: white;
   --mat-snack-bar-button-color: white;
@@ -22,7 +21,8 @@ body {
   --mat-snack-bar-container-color: #f44336;
   --mat-snack-bar-button-color: white;
   --mat-snack-bar-supporting-text-color: white;
-=======
+}
+
 .page-body {
   margin: 24px;
   padding: 24px;
@@ -30,5 +30,4 @@ body {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #fff;
->>>>>>> full-service-features
 }

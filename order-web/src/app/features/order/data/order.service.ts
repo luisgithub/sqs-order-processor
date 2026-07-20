@@ -21,7 +21,7 @@ export class OrderService {
     return this.http.get<OrderDto>(`${this.apiUrl}/${id}`);
   }
 
-  deleteOrder(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  deleteOrder(id: string): Observable<unknown> {
+    return this.http.delete(`${this.apiUrl}/${id}`, { responseType: 'text' });
   }
 }
