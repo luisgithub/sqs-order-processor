@@ -47,4 +47,20 @@ public class OrderService {
         orders.remove(orderId);
     }
 
+    public OrderDto reprocessOrder(OrderDto orderDto) {
+        orderDto = orders.get(orderDto.id());
+        orders.put(orderDto.id(), orderDto);
+        log.info("Order {} has been re-processed", orderDto.id());
+        try {
+            restClient.post()
+                    .uri("/api/orders")
+                    .body(orderDto)
+                    .retrieve()
+                    .toBodilessEntity();
+            return orderDto;
+        } catch (Exception ex) {
+            log.error("Error while trying send order to SQS Service", ex);
+        }
+        return null;
+    }
 }
