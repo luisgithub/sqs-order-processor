@@ -13,6 +13,10 @@ export class OrderService {
     return this.http.post<OrderDto>(this.apiUrl, order);
   }
 
+  updateOrder(order: OrderDto): Observable<OrderDto> {
+    return this.http.put<OrderDto>(this.apiUrl, order);
+  }
+
   getOrders(): Observable<OrderDto[]> {
     return this.http.get<OrderDto[]>(this.apiUrl);
   }

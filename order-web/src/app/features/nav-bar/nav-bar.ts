@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
@@ -18,6 +18,7 @@ import { MatListModule } from '@angular/material/list';
     MatSidenavModule,
     MatListModule,
   ],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './nav-bar.css',
 })
 export class NavBar {}

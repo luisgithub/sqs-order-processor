@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ChangeDetectionStrategy } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -9,12 +9,23 @@ import { RouterLink } from '@angular/router';
 import { ConfirmDialog } from '../../../shared/confirm-dialog/confirm-dialog';
 import { OrderService } from '../data/order.service';
 import { OrderDto } from '../models/order.model';
+import { EmptyPage } from '../../empty-page/empty-page';
 
 @Component({
   selector: 'app-order-list',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatTableModule, MatButtonModule, MatDialogModule, MatIconModule, RouterLink],
+  imports: [
+    CommonModule,
+    MatCardModule,
+    MatTableModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatIconModule,
+    RouterLink,
+    EmptyPage
+  ],
   templateUrl: './order-list.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './order-list.css',
 })
 export class OrderList implements OnInit {
